@@ -30,6 +30,7 @@
                         <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="/#about">About us</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="/#services">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/w_admin">Admin Portal</a></li>
                     </ul>
                 </div>
 
