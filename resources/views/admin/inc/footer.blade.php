@@ -7,7 +7,10 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-info">
                         <h3>{{$about->name}}</h3>
-                        <p class="pb-3"><em>{{$about->about}}</em></p>
+                        <p class="pb-3"><em>
+                            {{ \Illuminate\Support\Str::limit($about->about, $limit = 150, $end = '...') }}
+
+                        </em></p>
                         <p>
                             {{$address->address1}} <br>
                             {{$address->address2}}<br><br>

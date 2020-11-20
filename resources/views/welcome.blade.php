@@ -271,7 +271,7 @@
               <h4>{{$station->size}}m<sup>2</sup></h4>
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                 <a href="/stationdetail/{{$station->id}}"> {{$station->detail}}</a>
+                 <a href="/stationdetail/{{$station->id}}">   {{ \Illuminate\Support\Str::limit($station->detail, $limit = 250, $end = '...') }}</a>
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
@@ -355,7 +355,7 @@
                     <div class="member-info">
                         <div class="member-info-content">
                             <h4>{{$product->name}}</h4>
-                            <span>{{$product->detail}}</span>
+                            <span>  {{ \Illuminate\Support\Str::limit($product->detail, $limit = 150, $end = '...') }}</span>
                         </div>
                         <div class="social">
                                 </div>
