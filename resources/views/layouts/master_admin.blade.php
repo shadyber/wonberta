@@ -23,7 +23,7 @@
 </head>
 
 <body id="page-top">
-
+<div id="app">
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="/admin/vendor/jquery/jquery.min.js"></script>

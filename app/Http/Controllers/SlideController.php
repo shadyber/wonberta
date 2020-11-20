@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Slide;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SlideController extends Controller
 {
@@ -34,7 +36,7 @@ class SlideController extends Controller
     public function create()
     {
         //
-        return view('admin.carousel.index');
+        return view('admin.carousel.create');
     }
 
     /**
@@ -46,6 +48,38 @@ class SlideController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'photo' => 'mimes:jpeg,png|max:1024'
+
+        ]);
+        $url='/img/slide/slide1.jpg';
+        if($request->has('photo'))
+        {
+
+            try{
+
+                $extension = $request->photo->extension();
+                $request->photo->storeAs('/public', $validatedData['title'].time().".".$extension);
+                $url = Storage::url($validatedData['title'].time().".".$extension);
+
+            }catch(Exception $ex){
+                print('Image not Uploaded'.$ex);
+            }
+
+        }else{
+            print('Photo not found');
+        }
+
+        $slide = new Slide;
+        $slide->title = $request->title;
+        $slide->subtitle = $request->subtitle;
+        $slide->photo =$url;
+
+        $slide->save();
+        return redirect()->back()->with(['success'=>'Carousel Slide Created','jobs'=>$slide]);
+
+
     }
 
     /**
@@ -57,6 +91,8 @@ class SlideController extends Controller
     public function show(Slide $slide)
     {
         //
+
+        return view('admin.carousel.show')->with('slide',$slide);
     }
 
     /**
@@ -68,6 +104,8 @@ class SlideController extends Controller
     public function edit(Slide $slide)
     {
         //
+
+        return view('admin.carousel.edit');
     }
 
     /**
@@ -91,5 +129,12 @@ class SlideController extends Controller
     public function destroy(Slide $slide)
     {
         //
+
+//        $slide = Slide::findOrFail($id);
+
+        $slide->delete();
+
+
+        return redirect()->route('slide.index')->with('success','Slide Removed');
     }
 }

@@ -1,26 +1,31 @@
 @extends('layouts.master_admin')
-@section('title', 'Create Album')
+@section('title', 'Create Slide')
 @section('content')
-
 
     <div class="row">
         <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
             <div class="card-header">
-                Create Album
+
+                <a href="/slide" class="btn  btn-info">List all Slids</a>
             </div>
             <div class="card-body">
 
 
-                <form action="/album" method="post" enctype="multipart/form-data">
-                    {{  Form::token()  }}
+                {!! Form::model($slide, [
+                    'method' => 'PATCH',
+                    'enctype' => 'multipart/form-data',
+                    'route' => ['slide.update', $slide->id]
+                ]) !!}
+
+                {{  Form::token()  }}
                     <div class="form-group">
-                        <label>Album Name</label>
+                        <label>Title</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="fa fa-closed-captioning"></i></span>
                             </div>
-                            <input type="text" name="name" class="form-control" placeholder="Album Name" aria-label="Album Name" aria-describedby="basic-addon11" required>
-                            @error('name')
+                            <input type="text" name="title" class="form-control" placeholder="Slide Title" aria-label="title" aria-describedby="basic-addon11" required>
+                            @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -32,14 +37,14 @@
 
 
                     <div class="form-group">
-                        <label>Album Detail</label>
+                        <label>Slide Subtitle</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="fa fa-info"></i></span>
                             </div>
-                            <textarea class="form-control" name="detail" placeholder="Album Detail" aria-label="detail" aria-describedby="basic-addon11" required>
+                            <textarea class="form-control" name="subtitle" placeholder="Station Detail" aria-label="subtitle" aria-describedby="basic-addon11" required>
                             </textarea>
-                            @error('detail')
+                            @error('subtitle')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -48,7 +53,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label> Album Banner </label>
+                        <label>Slide Photo </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-photo-video"></i></span>
@@ -66,7 +71,6 @@
                     </div>
 
 
-
                     <button type="submit" class="btn btn-success mr-2">Submit</button>
                     <button type="submit" class="btn btn-dark">Cancel</button>
                 {{{ Form::close() }}}
@@ -74,6 +78,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection

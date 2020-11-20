@@ -22,10 +22,13 @@ Route::resource('/album', App\Http\Controllers\AlbumController::class);
 Route::resource('/photo', App\Http\Controllers\PhotoController::class);
 Route::resource('/settings', App\Http\Controllers\SettingController::class);
 Route::resource('/about', App\Http\Controllers\AboutController::class);
-Route::resource('/slideshow', App\Http\Controllers\SlideController::class);
+Route::resource('/slide', App\Http\Controllers\SlideController::class);
 Route::resource('/product', App\Http\Controllers\ProductController::class);
 Route::resource('/order', App\Http\Controllers\OrderController::class);
 Route::resource('/message', App\Http\Controllers\MessageController::class);
+
+
+Route::resource('/front/station', App\Http\Controllers\FrontStationController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/w_admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('admin');

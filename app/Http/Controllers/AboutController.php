@@ -85,7 +85,7 @@ if(!$about){
         $about->background = $request->background;
         $about->photo =$url;
         $about->save();
-        return redirect()->back()->with(['success'=>'Company Profile Created','jobs'=>$about]);
+        return view('admin.about.index')->with(['success'=>'Company Profile Created','about'=>$about]);
 
 
     }
@@ -100,7 +100,7 @@ if(!$about){
     {
         //
 
-        return view('admin.about.show')->with('about',$about);
+        return view('admin.about.index')->with('about',$about);
     }
 
     /**
@@ -139,7 +139,23 @@ if(!$about){
 
         $about->fill($input)->save();
 
-        return redirect()->route('about.index')->with('success','Company Profile Update Successfuly');
+        if($request->has('photo'))
+        {
+            try{
+
+                $extension = $request->photo->extension();
+                $request->photo->storeAs('/public', $request->name.".".$extension);
+                $url = Storage::url($request->name.".".$extension);
+
+            }catch(Exception $ex){
+
+            }
+
+            $about->photo=$url;
+            $about->save();
+
+        }
+        return redirect()->back()->with('success','Company Profile Update Successfuly');
 
 
     }

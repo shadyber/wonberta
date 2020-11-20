@@ -17,6 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->id();
             $table->string('name');
             $table->longText('detail');
+            $table->longText('photo');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Photo;
+use App\Models\Station;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -34,7 +37,9 @@ class PhotoController extends Controller
     {
         //
         $photos=Photo::all();
-        return view('admin.photo.create')->with('photos',$photos);
+        $albums=Album::all();
+        $stations=Station::all();
+        return view('admin.photo.create')->with(['photos'=>$photos,'albums'=>$albums,'stations'=>$stations]);
     }
 
     /**
@@ -46,6 +51,38 @@ class PhotoController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'photo' => 'mimes:jpeg,png|max:1024'
+
+        ]);
+        $url='/img/slide/slide1.jpg';
+        if($request->has('photo'))
+        {
+
+            try{
+
+                $extension = $request->photo->extension();
+                $request->photo->storeAs('/public', $validatedData['title'].time().".".$extension);
+                $url = Storage::url($validatedData['title'].time().".".$extension);
+
+            }catch(Exception $ex){
+                print('Image not Uploaded'.$ex);
+            }
+
+        }else{
+            print('Photo not found');
+        }
+
+        $photo = new Photo;
+        $photo->title = $request->title;
+        $photo->album_id = $request->album_id;
+        $photo->station_id = $request->station_id;
+        $photo->photo =$url;
+
+        $photo->save();
+        return redirect()->back()->with(['success'=>'Photo Created','photo'=>$photo]);
+
     }
 
     /**
