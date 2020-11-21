@@ -20,6 +20,7 @@ class CreateStationsTable extends Migration
             $table->string('banner')->default('/img/banner.jpg');
             $table->string('address')->nullable();
             $table->string('size')->nullable();
+            $table->string('altitude')->nullable();
             $table->timestamps();
         });
     }

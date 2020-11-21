@@ -23,7 +23,7 @@
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">About Us </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="about" class="form-control p-0 border-0"></textarea>
+                            <textarea rows="3" name="about" class="form-control p-0 border-0 summernote"></textarea>
                         </div>
                     </div>
 

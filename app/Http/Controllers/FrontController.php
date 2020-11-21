@@ -18,12 +18,12 @@ class FrontController extends Controller
     public function index()
     {
         $products=Product::all();
-        $about=About::get()->first();
+        $about=About::get()->last();
         $stations=Station::all();
         $address=Address::get()->first();
-        $albums=Album::all();
-        $photos=Photo::all();
-        $slides=Slide::all();
+        $albums=Album::orderBy('id', 'desc')->take(5)->get();;
+        $photos=Photo::orderBy('id', 'desc')->take(5)->get();;
+        $slides=Slide::orderBy('id', 'desc')->take(3)->get();;
         return view('welcome')->with(['about'=>$about,'products'=>$products,'address'=>$address,'stations'=>$stations,'albums'=>$albums,'photos'=>$photos,'slides'=>$slides]);
     }
 }

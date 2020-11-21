@@ -1,13 +1,13 @@
-@extends('layouts.master_front')
+@extends('layouts.inner_page')
 @section('title', 'List Stations')
 @section('content')
 
-    <div class="row">
-        <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
-            <div class="card-header">
-                List Stations
-            </div>
-            <div class="card-body row">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+
+            <div class="portfolio-details-container">
 
                 @foreach($stations as $station)
                     <div class="col-md-3">
@@ -25,7 +25,6 @@
 
 
             </div>
-        </div>
-    </div>
-
-@endsection
+        </section><!-- End Portfolio Details Section -->
+    @endsection
+    

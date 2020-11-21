@@ -25,6 +25,7 @@ class FrontStationController extends Controller
         $stations=Station::all();
         $address=Address::get()->first();
         $about=About::get()->first();
+        
 
         return view('front.station.index')->with(['about'=>$about,'products'=>$products,'address'=>$address,'stations'=>$stations]);
      }
@@ -67,7 +68,7 @@ return redirect()->back();
         $address=Address::all()->first();
         $about=About::get()->first();
         $station_photos=Photo::all()->where('station_id','LIKE',$station->id);
-
+ 
         return view('front.station.show')->with(['about'=>$about,'station'=>$station,'stations'=>$stations,'products'=>$products,'address'=>$address,'station_photos'=>$station_photos]);
     }
 

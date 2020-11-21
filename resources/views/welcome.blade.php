@@ -8,13 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', ' Wonberta General Import and Export') }}</title>
+    <title>{{ config('app.name', ' Wonberta General Import and Export') }} General Import &amp; Export plc.</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-  <meta content="" name="wonberta general import and export company ">
-  <meta content="" name="wonberta,coffee,export,import,ethiopia,best company">
+  <meta content="title" name="wonberta general import and export company ">
+  <meta content="description" name="{{$about->about}}wonberta,coffee,export,import,ethiopia,best company">
 
   <!-- Favicons -->
   <link href="/logo.ico" rel="icon">
@@ -48,39 +48,7 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo mr-auto"><a href="/"><img src="/img/logo.svg" alt="Wonberta Logo"></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="/front/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#products">Products</a></li>
-            <li class="drop-down"><a href="">Stations</a>
-                <ul>
-                    @foreach($stations as $station)
-                    <li><a href="/front/station/{{$station->id}}">{{$station->name}}</a></li>
-                    @endforeach
-
-                </ul>
-            </li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-      <a href="#about" class="get-started-btn"  data-toggle="modal" data-target="#sampleModal">Sample Order</a>
-
-    </div>
-  </header><!-- End Header -->
-
+@include('admin.inc.front_nav')
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -333,10 +301,17 @@
             </div>
           </div>
             @endforeach
-
         </div>
 
       </div>
+      <section class="white">
+        <div class="container" data-aos="zoom-in">
+
+        <div class="text-center">
+        <a class="cta-btn btn-get-started border-bottom" href="/gallery" >More Photo</a>
+        </div>
+    </div>
+</section>
     </section><!-- End Portfolio Section -->
 <section id="products" class="team section-bg">
     <div class="container" data-aos="fade-up">
@@ -522,8 +497,10 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="/message" method="post" role="form" class="php-email-form">
-                {{  Form::token()  }}
+            
+
+            <form action="/message" class="php-email-form" method="post">
+               @csrf
               <div class="form-row">
                 <div class="col form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -534,6 +511,8 @@
                   <div class="validate"></div>
                 </div>
               </div>
+
+
               <div class="form-group">
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                 <div class="validate"></div>
@@ -542,12 +521,16 @@
                 <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                 <div class="validate"></div>
               </div>
+
+
               <div class="mb-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
+
               <div class="text-center"><button type="submit">Send Message</button></div>
+
             </form>
           </div>
 

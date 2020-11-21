@@ -57,7 +57,7 @@
 
                         <input type="submit" value="Subscribe">
                     </form>
-
+                    <img src="/img/sprite02.png" class="img img-responsive" alt="partners" />
                 </div>
 
             </div>

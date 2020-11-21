@@ -19,6 +19,9 @@
 
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
+     <!-- Favicons -->
+  <link href="/logo.ico" rel="icon">
+  <link href="/logo.ico" rel="apple-touch-icon">
 
 </head>
 
@@ -118,10 +121,12 @@
     <!-- Page level custom scripts -->
     <script src="/admin/js/demo/chart-area-demo.js"></script>
     <script src="/admin/js/demo/chart-pie-demo.js"></script>
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('about').ckeditor();
+        $(document).ready(function() {
+          $('.summernote').summernote();
         });
     </script>
 

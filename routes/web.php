@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,12 @@ Route::resource('/front/station', App\Http\Controllers\FrontStationController::c
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/w_admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('admin');
+Auth::routes(['register' => false]);
+
+
+Route::get('/gallery', [App\Http\Controllers\FrontPhotoController::class, 'index'])->name('gallery');
+
+
+Route::get('/storagelink', function () {
+    Artisan::call('storage:link');
+});

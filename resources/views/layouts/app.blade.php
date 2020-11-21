@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+     <!-- Favicons -->
+  <link href="/logo.ico" rel="icon">
+  <link href="/logo.ico" rel="apple-touch-icon">
 </head>
 <body>
     <div id="app">

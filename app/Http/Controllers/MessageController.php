@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,13 +41,13 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
-        $this->validate($request, [
+        //   
+          $this->validate($request, [
+            'email' => 'required',
             'name' => ['required', 'max:255'],
-            'email' => ['required','email'],
             'message' => ['required'],
-        ]);
+        ]); 
+        
         $message=new Message;
         $message->name = $request->name;
         $message->email = $request->email;
