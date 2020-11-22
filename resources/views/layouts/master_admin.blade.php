@@ -20,8 +20,8 @@
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
      <!-- Favicons -->
-  <link href="/logo.ico" rel="icon">
-  <link href="/logo.ico" rel="apple-touch-icon">
+  <link href="/img/favicon.png" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 </head>
 

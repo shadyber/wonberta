@@ -42,7 +42,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="fa fa-info"></i></span>
                             </div>
-                            <textarea class="form-control" name="detail"  placeholder="Station Detail" aria-label="detail" aria-describedby="basic-addon11" required>
+                            <textarea class="form-control summernote" name="detail"  placeholder="Station Detail" aria-label="detail" aria-describedby="basic-addon11" required>
                            {{$station->detail}}
                             </textarea>
                             @error('detail')
