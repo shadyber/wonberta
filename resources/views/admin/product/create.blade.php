@@ -5,6 +5,7 @@
 <div class="row">
     <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
         <div class="card-header">
+            <a href="/product"><i class="fa fa-list"></i></a>
      Create A Product
         </div>
         <div class="card-body">
@@ -17,7 +18,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon11"><i class="fa fa-text"></i></span>
                     </div>
-                    <input type="text" name="name" class="form-control" placeholder="Project Title" aria-label="title" aria-describedby="basic-addon11" required>
+                    <input type="text" name="name" class="form-control" placeholder="Product Title" aria-label="title" aria-describedby="basic-addon11" required>
                     @error('name')
                     <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

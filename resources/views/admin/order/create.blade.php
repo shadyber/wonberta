@@ -5,6 +5,7 @@
 <div class="row">
     <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
         <div class="card-header">
+            <a href="/order"><i class="fa fa-list"></i></a>
      Create A Product
         </div>
         <div class="card-body">

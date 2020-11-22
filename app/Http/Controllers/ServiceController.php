@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,11 @@ class ServiceController extends Controller
     public function index()
     {
         //
+        $services=Service::all();
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.service.index')->with(['services'=>$services,'orders_alert'=>$orders_alert]);
+
     }
 
     /**
@@ -25,6 +31,11 @@ class ServiceController extends Controller
     public function create()
     {
         //
+        $services=Service::all();
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.service.create')->with(['services'=>$services,'orders_alert'=>$orders_alert]);
+
     }
 
     /**
@@ -47,6 +58,10 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.service.show')->with(['service'=>$service,'orders_alert'=>$orders_alert]);
+
     }
 
     /**
@@ -58,6 +73,10 @@ class ServiceController extends Controller
     public function edit(Service $service)
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.service.edit')->with(['service'=>$service,'orders_alert'=>$orders_alert]);
+
     }
 
     /**

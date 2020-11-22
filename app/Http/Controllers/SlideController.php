@@ -82,7 +82,7 @@ class SlideController extends Controller
         $slide->photo =$url;
 
         $slide->save();
-        return redirect()->back()->with(['success'=>'Carousel Slide Created','jobs'=>$slide]);
+        return redirect()->back()->with(['success'=>'Carousel Slide Created','slide'=>$slide]);
 
 
     }

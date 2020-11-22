@@ -18,8 +18,9 @@ class CreatePhotosTable extends Migration
             $table->string('photo');
             $table->string('title');
             $table->unsignedBigInteger('album_id');
+            $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
             $table->unsignedBigInteger('station_id');
-            $table->timestamps();
+             $table->timestamps();
         });
     }
 

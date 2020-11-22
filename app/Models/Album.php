@@ -14,4 +14,10 @@ class Album extends Model
         'banner'
 
     ];
+
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
 }

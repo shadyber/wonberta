@@ -1,31 +1,24 @@
 @extends('layouts.master_admin')
-@section('title', 'Create Album')
+@section('title', 'Create Service')
 @section('content')
-
 
     <div class="row">
         <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
             <div class="card-header">
-                <a href="/album"><i class="fa fa-list"></i></a>
-
-                Create Album
+                <a href="/service"><i class="fa fa-list"></i></a>
+                Create A Service
             </div>
             <div class="card-body">
 
-
-                {!! Form::model($album, [
-                    'method' => 'PATCH',
-                    'enctype' => 'multipart/form-data',
-                    'route' => ['album.update', $album->id]
-                ]) !!}
-                {{  Form::token()  }}
+                <form action="/service" method="post" enctype="multipart/form-data">
+                    {{  Form::token()  }}
                     <div class="form-group">
-                        <label>Album Name</label>
+                        <label>Your Service Name</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon11"><i class="fa fa-closed-captioning"></i></span>
+                                <span class="input-group-text" id="basic-addon11"><i class="fa fa-text"></i></span>
                             </div>
-                            <input type="text" name="name" value="{{$album->name}}" class="form-control" placeholder="Album Name" aria-label="Album Name" aria-describedby="basic-addon11" required>
+                            <input type="text" name="name" class="form-control" placeholder="Service Title" aria-label="title" aria-describedby="basic-addon11" required>
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -38,13 +31,12 @@
 
 
                     <div class="form-group">
-                        <label>Album Detail</label>
+                        <label>Your Service Detail</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon11"><i class="fa fa-info"></i></span>
+                                <span class="input-group-text" id="basic-addon11"><i class="fa fa-text"></i></span>
                             </div>
-                            <textarea class="form-control" name="detail" placeholder="Album Detail" aria-label="detail" aria-describedby="basic-addon11" required>
-                            {{$album->detail}}
+                            <textarea class="form-control" name="detail" placeholder="Service Detail" aria-label="detail" aria-describedby="basic-addon11" required>
                             </textarea>
                             @error('detail')
                             <span class="invalid-feedback" role="alert">
@@ -55,23 +47,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label> Album Banner </label>
-                        <div class="input-group">
+                        <label>Your Service Icon</label>
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-photo-video"></i></span>
+                                <span class="input-group-text" id="basic-addon11"><i class="fa fa-text"></i></span>
                             </div>
-                            <div class="custom-file">
-                                <input type="file" name="photo" class="custom-file-input" id="inputGroupFile01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                            </div>
-                            @error('photo')
+                            <input type="text" name="icon" class="form-control" placeholder="Icon" aria-label="title" aria-describedby="basic-addon11" required>
+                            @error('icon')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+
                         </div>
                     </div>
-
 
 
                     <button type="submit" class="btn btn-success mr-2">Submit</button>
@@ -81,6 +70,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection

@@ -114,7 +114,7 @@ class AlbumController extends Controller
     {
         $orders_alert=Order::all()->where('status','LIKE',0);
 
-        //
+
         return view('admin.album.edit')->with(['album'=>$album,'orders_alert'=>$orders_alert]);
     }
 
@@ -127,7 +127,14 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
-        //
+        $this->validate($request, [
+        'name' => 'required'
+
+    ]);
+
+        $input = $request->all();
+        $album->fill($input)->save();
+        return redirect()->back()->with('success','Album Updated');
     }
 
     /**

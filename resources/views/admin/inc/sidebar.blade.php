@@ -14,7 +14,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="w_admin">
+            <a class="nav-link" href="/w_admin">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -45,7 +45,38 @@
         </li>
 
 
+         <!-- Nav Item - Charts -->
+         <li class="nav-item">
+             <a class="nav-link" href="/address">
+                 <i class="fas fa-fw fa-address-book"></i>
+                 <span>Address</span></a>
+         </li>
 
+
+         <!-- Nav Item - Utilities Collapse Menu -->
+         <li class="nav-item">
+             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsegallery"
+                aria-expanded="true" aria-controls="collapsegallery">
+                 <i class="fas fa-fw fa-photo-video"></i>
+                 <span>Photo Gallery</span>
+             </a>
+             <div id="collapsegallery" class="collapse" aria-labelledby="headinggallery"
+                  data-parent="#accordionSidebar">
+                 <div class="bg-white py-2 collapse-inner rounded">
+                     <h6 class="collapse-header">Album:</h6>
+                     <a class="collapse-item" href="/album/create">create Album</a>
+                     <a class="collapse-item" href="/photo/create">Crate Photo</a>
+
+                     <!-- Divider -->
+                     <hr class="sidebar-divider">
+
+                     <a class="collapse-item" href="/album">List Album</a>
+                     <a class="collapse-item" href="/photo">List Photo</a>
+
+
+                 </div>
+             </div>
+         </li>
         <!-- Heading -->
         <div class="sidebar-heading">
             Pruducts
@@ -68,22 +99,13 @@
             </div>
         </li>
 
-         <!-- Nav Item - Utilities Collapse Menu -->
+         <!-- Nav Item - Charts -->
          <li class="nav-item">
-             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
-                aria-expanded="true" aria-controls="collapseOrders">
-                 <i class="fas fa-fw fa-search-location"></i>
-                 <span>Orders</span>
-             </a>
-             <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders"
-                  data-parent="#accordionSidebar">
-                 <div class="bg-white py-2 collapse-inner rounded">
-                     <h6 class="collapse-header">Customer Orders:</h6>
-                     <a class="collapse-item" href="/order">List All</a>
-
-                 </div>
-             </div>
+             <a class="nav-link" href="/service">
+                 <i class="fas fa-fw fa-table"></i>
+                 <span>Services</span></a>
          </li>
+
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -104,37 +126,54 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider">
+         <!-- Heading -->
+         <div class="sidebar-heading">
+             Customers
+         </div>
+
+
+         <!-- Nav Item - Utilities Collapse Menu -->
+         <li class="nav-item">
+             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
+                aria-expanded="true" aria-controls="collapseOrders">
+                 <i class="fas fa-fw fa-search-location"></i>
+                 <span>Orders</span>
+             </a>
+             <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders"
+                  data-parent="#accordionSidebar">
+                 <div class="bg-white py-2 collapse-inner rounded">
+                     <h6 class="collapse-header">Customer Orders:</h6>
+                     <a class="collapse-item" href="/order">List All</a>
+
+                 </div>
+             </div>
+         </li>
+
+
+         <!-- Nav Item - Utilities Collapse Menu -->
+         <li class="nav-item">
+             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMessages"
+                aria-expanded="true" aria-controls="collapseMessages">
+                 <i class="fas fa-fw fa-envelope"></i>
+                 <span>Message</span>
+             </a>
+             <div id="collapseMessages" class="collapse" aria-labelledby="headingMessages"
+                  data-parent="#accordionSidebar">
+                 <div class="bg-white py-2 collapse-inner rounded">
+                     <h6 class="collapse-header">Customer Messages:</h6>
+                     <a class="collapse-item" href="/message">List All</a>
+
+                 </div>
+             </div>
+         </li>
 
 
 
 
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="/address">
-                <i class="fas fa-fw fa-address-book"></i>
-                <span>Address</span></a>
-        </li>
+         <!-- Divider -->
+         <hr class="sidebar-divider d-none d-md-block">
 
-
-           <!-- Nav Item - Utilities Collapse Menu -->
-           <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsegallery"
-                aria-expanded="true" aria-controls="collapsegallery">
-                <i class="fas fa-fw fa-photo-video"></i>
-                <span>Photo Gallery</span>
-            </a>
-            <div id="collapsegallery" class="collapse" aria-labelledby="headinggallery"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Album:</h6>
-                    <a class="collapse-item" href="/album/create">create Album</a>
-                    <a class="collapse-item" href="/photo/create">Crate Photo</a>
-
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Tables -->
+         <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" href="/settings">
                 <i class="fas fa-fw fa-wrench"></i>
@@ -143,9 +182,6 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
-
-
-
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">

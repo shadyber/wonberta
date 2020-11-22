@@ -130,6 +130,14 @@ class PhotoController extends Controller
     public function update(Request $request, Photo $photo)
     {
         //
+        $this->validate($request, [
+            'name' => 'required'
+
+        ]);
+
+        $input = $request->all();
+        $photo->fill($input)->save();
+        return redirect()->back()->with('success','Photo Updated');
     }
 
     /**
