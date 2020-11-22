@@ -5,7 +5,7 @@
     <div class="row">
         <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
             <div class="card-header">
-                List Stations
+                <a href="/station"><i class="fa fa-list"></i></a>
             </div>
             <div class="card-body row">
 
@@ -21,6 +21,9 @@
                             <p>
                                 {{$station->detail}}
                             </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/station/{{$station->id}}/edit" class="btn btn-warning">Edit</a>
                         </div>
                     </div>
 

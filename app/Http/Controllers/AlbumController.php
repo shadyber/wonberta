@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,7 +25,9 @@ class AlbumController extends Controller
     {
         //
         $albums=Album::all();
-        return view('admin.album.index')->with('albums',$albums);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.album.index')->with(['albums'=>$albums,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -36,7 +39,9 @@ class AlbumController extends Controller
     {
         //
         $albums=Album::all();
-        return view('admin.album.create')->with('albums',$albums);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.album.create')->with(['albums'=>$albums,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -78,7 +83,9 @@ class AlbumController extends Controller
         $album->photo =$url;
 
         $album->save();
-        return redirect()->back()->with(['success'=>'Album Created','album'=>$album]);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return redirect()->back()->with(['success'=>'Album Created','album'=>$album,'orders_alert'=>$orders_alert]);
 
 
     }
@@ -92,7 +99,9 @@ class AlbumController extends Controller
     public function show(Album $album)
     {
         //
-        return view('admin.album.show')->with('album',$album);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.album.show')->with(['album'=>$album,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -103,8 +112,10 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
         //
-        return view('admin.album.edit')->with('album',$album);
+        return view('admin.album.edit')->with(['album'=>$album,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -128,5 +139,8 @@ class AlbumController extends Controller
     public function destroy(Album $album)
     {
         //
+        $album->delete();
+        return redirect()->back()->with('success','Removed');
+
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,9 @@ class SettingController extends Controller
     {
         //
     $user=Auth::user();
-        return view('admin.settings.index')->with('user',$user);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.settings.index')->with(['user'=>$user,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -33,6 +36,8 @@ class SettingController extends Controller
     public function create()
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
     }
 
     /**
@@ -44,6 +49,8 @@ class SettingController extends Controller
     public function store(Request $request)
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
     }
 
     /**
@@ -55,6 +62,8 @@ class SettingController extends Controller
     public function show($id)
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
     }
 
     /**
@@ -66,6 +75,8 @@ class SettingController extends Controller
     public function edit($id)
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
     }
 
     /**

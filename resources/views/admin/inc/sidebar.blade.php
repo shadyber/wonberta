@@ -39,7 +39,7 @@
                     <h6 class="collapse-header">Company Profile:</h6>
                     <a class="collapse-item" href="/about">Company Profile</a>
                     <a class="collapse-item" href="/slide">Slideshow</a>
-                    <a class="collapse-item" href="/banner">Banner</a>
+
                 </div>
             </div>
         </li>

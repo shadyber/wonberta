@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Slide;
 use Exception;
 use Illuminate\Http\Request;
@@ -25,7 +26,9 @@ class SlideController extends Controller
     {
         //
         $slides=Slide::all();
-        return view('admin.carousel.index')->with('slides',$slides);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.carousel.index')->with(['slides'=>$slides,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -36,7 +39,9 @@ class SlideController extends Controller
     public function create()
     {
         //
-        return view('admin.carousel.create');
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.carousel.create')->with(['orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -91,8 +96,9 @@ class SlideController extends Controller
     public function show(Slide $slide)
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.carousel.show')->with('slide',$slide);
+        return view('admin.carousel.show')->with(['slide'=>$slide,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -104,8 +110,9 @@ class SlideController extends Controller
     public function edit(Slide $slide)
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.carousel.edit');
+        return view('admin.carousel.edit')->with(['slide'=>$slide,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -135,6 +142,6 @@ class SlideController extends Controller
         $slide->delete();
 
 
-        return redirect()->route('slide.index')->with('success','Slide Removed');
+        return redirect()->back()->with('success','Slide Removed');
     }
 }

@@ -88,8 +88,24 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="fa fa-square"></i></span>
                             </div>
-                            <input type="text" name="size" class="form-control" placeholder="Staion Square meter" aria-label="title" aria-describedby="basic-addon11" required>
+                            <input type="text" name="size" class="form-control" placeholder="Staion Square meter" aria-label="size" aria-describedby="basic-addon11">
                             @error('size')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Station Altitude</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon11"><i class="fa fa-text-height"></i></span>
+                            </div>
+                            <input type="text" name="altitude" class="form-control" placeholder="altitude" aria-label="altitude" aria-describedby="basic-addon11">
+                            @error('altitude')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

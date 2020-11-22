@@ -13,7 +13,15 @@ class Station extends Model
         'detail',
         'address',
         'banner',
+        'altitude',
         'size'
 
     ];
+
+
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
 }

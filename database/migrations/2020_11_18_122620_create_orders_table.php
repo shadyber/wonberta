@@ -22,8 +22,10 @@ class CreateOrdersTable extends Migration
             $table->longText('application_letter');
             $table->string('address');
             $table->bigInteger('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
             $table->string('order_varity');
             $table->string('order_grade');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

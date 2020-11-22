@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Station;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,9 @@ class StationController extends Controller
     {
         //
         $stations=Station::all();
-        return view('admin.station.index')->with('stations',$stations);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.station.index')->with(['stations'=>$stations,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -37,7 +40,9 @@ class StationController extends Controller
         //
 
         $stations=Station::all();
-        return view('admin.station.create')->with('stations',$stations);
+
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return view('admin.station.create')->with(['stations'=>$stations,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -77,6 +82,7 @@ class StationController extends Controller
         $station->banner =$url;
         $station->address =$request->address;
         $station->size =$request->size;
+        $station->altitude =$request->altitude;
 
         $station->save();
         return redirect()->back()->with(['success'=>'Product Created','stations'=>$station]);
@@ -94,7 +100,8 @@ class StationController extends Controller
     {
         //
 
-        return view('admin.station.show')->with('station',$station);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return view('admin.station.show')->with(['station'=>$station,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -107,7 +114,8 @@ class StationController extends Controller
     {
         //
 
-        return view('admin.station.edit')->with('station',$station);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return view('admin.station.edit')->with(['station'=>$station,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -120,6 +128,21 @@ class StationController extends Controller
     public function update(Request $request, Station $station)
     {
         //
+
+        $station = Station::findOrFail($station->id);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'detail' => 'required'
+
+        ]);
+
+        $input = $request->all();
+
+        $station->fill($input)->save();
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return redirect()->back()->with(['success'=>'Station Update Successfuly','orders_alert'=>$orders_alert]);
+
     }
 
     /**
@@ -131,5 +154,8 @@ class StationController extends Controller
     public function destroy(Station $station)
     {
         //
+        $station->delete();
+        return redirect()->back()->with('success','Removed');
+
     }
 }

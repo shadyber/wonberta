@@ -38,35 +38,35 @@
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Mission </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="mission" class="form-control p-0 border-0"></textarea>
+                            <textarea rows="3" name="mission" class="form-control p-0 border-0 summernote"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Vision </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="vision" class="form-control p-0 border-0"></textarea>
+                            <textarea rows="3" name="vision" class="form-control p-0 border-0 summernote"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Value </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="value" class="form-control p-0 border-0"></textarea>
+                            <textarea rows="3" name="value" class="form-control p-0 border-0 summernote"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Goal </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="goal" class="form-control p-0 border-0"></textarea>
+                            <textarea rows="3" name="goal" class="form-control p-0 border-0 summernote"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Background </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="background" class="form-control p-0 border-0"></textarea>
+                            <textarea rows="3" name="background" class="form-control p-0 border-0 summernote"></textarea>
                         </div>
                     </div>
 

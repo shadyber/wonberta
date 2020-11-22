@@ -24,7 +24,9 @@ class OrderController extends Controller
         //
         $orders=Order::all();
         $products=Product::all();
-        return view('admin.order.index')->with(['orders'=>$orders,'products'=>$products]);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.order.index')->with(['orders'=>$orders,'products'=>$products,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -37,7 +39,10 @@ class OrderController extends Controller
         //
         $orders=Order::all();
         $products=Product::all();
-        return view('admin.order.create')->with(['orders'=>$orders,'products'=>$products]);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.order.create')->with(['orders'=>$orders,'products'=>$products,'orders_alert'=>$orders_alert
+        ]);
     }
 
     /**
@@ -79,6 +84,11 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         //
+        $product=Product::find($order->product_id);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.order.show')->with(['order'=>$order,'product'=>$product,'orders_alert'=>$orders_alert
+        ]);
     }
 
     /**
@@ -102,6 +112,14 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         //
+        $this->validate($request, [
+            'status' => 'required'
+
+        ]);
+
+        $input = $request->all();
+        $order->fill($input)->save();
+        return redirect()->back()->with('success','Order Updated');
     }
 
     /**
@@ -113,5 +131,7 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+        $order->delete();
+        return redirect()->back()->with('success','Removed');
     }
 }

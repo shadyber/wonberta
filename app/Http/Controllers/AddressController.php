@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
 
-
     public function __construct()
     {
+
         $this->middleware('auth');
-    }
+ }
 
 
     /**
@@ -27,7 +28,9 @@ class AddressController extends Controller
         if(!$address){
             return view('admin.address.create');
         }
-        return view('admin.address.index')->with('address',$address);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.address.index')->with(['address'=>$address,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -39,7 +42,9 @@ class AddressController extends Controller
     {
         //
         $address=Address::get()->first();
-        return view('admin.address.create')->with('address',$address);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.address.create')->with(['address'=>$address,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -79,7 +84,9 @@ class AddressController extends Controller
         $address->linkedin = $request->linkedin;
 
         $address->save();
-        return  view('admin.address.index')->with('address',$address);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return  view('admin.address.index')->with(['address'=>$address,'orders_alert'=>$orders_alert]);
 
     }
 
@@ -103,7 +110,9 @@ class AddressController extends Controller
     public function edit(Address $address)
     {
         //
-        return  view('admin.address.index')->with('address',$address);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return  view('admin.address.index')->with(['address'=>$address,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -128,8 +137,8 @@ class AddressController extends Controller
         $input = $request->all();
 
         $address->fill($input)->save();
-
-        return redirect()->route('address.index')->with('success','Address Update Successfuly');
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return redirect()->route('address.index')->with(['success'=>'Address Update Successfuly','orders_alert'=>$orders_alert]);
 
     }
 
@@ -142,5 +151,7 @@ class AddressController extends Controller
     public function destroy(Address $address)
     {
         //
+        $address->delete();
+        return redirect()->back()->with('success','Removed');
     }
 }

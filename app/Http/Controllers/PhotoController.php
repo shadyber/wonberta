@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Order;
 use App\Models\Photo;
 use App\Models\Station;
 use Illuminate\Http\Request;
@@ -25,7 +26,9 @@ class PhotoController extends Controller
     {
         //
         $photos=Photo::all();
-        return view('admin.photo.index')->with('photos',$photos);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.photo.index')->with(['photos'=>$photos,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -39,7 +42,9 @@ class PhotoController extends Controller
         $photos=Photo::all();
         $albums=Album::all();
         $stations=Station::all();
-        return view('admin.photo.create')->with(['photos'=>$photos,'albums'=>$albums,'stations'=>$stations]);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.photo.create')->with(['photos'=>$photos,'albums'=>$albums,'stations'=>$stations,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -57,6 +62,7 @@ class PhotoController extends Controller
 
         ]);
         $url='/img/slide/slide1.jpg';
+        //try uplodaing photo with for loop
         if($request->has('photo'))
         {
 
@@ -81,7 +87,9 @@ class PhotoController extends Controller
         $photo->photo =$url;
 
         $photo->save();
-        return redirect()->back()->with(['success'=>'Photo Created','photo'=>$photo]);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return redirect()->back()->with(['success'=>'Photo Created','photo'=>$photo,'orders_alert'=>$orders_alert]);
 
     }
 
@@ -93,7 +101,9 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        return view('admin.photo.index')->with('photo',$photo);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.photo.index')->with(['photo'=>$photo,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -105,7 +115,9 @@ class PhotoController extends Controller
     public function edit(Photo $photo)
     {
         //
-        return view('admin.photo.edit')->with('photo',$photo);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.photo.edit')->with(['photo'=>$photo,'ordres_alert'=>$orders_alert]);
     }
 
     /**
@@ -129,5 +141,7 @@ class PhotoController extends Controller
     public function destroy(Photo $photo)
     {
         //
+        $photo->delete();
+        return redirect()->back()->with('success','Removed');
     }
 }

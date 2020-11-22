@@ -20,6 +20,7 @@
 
                       </a>
                     </div>
+                    <div class="card-footer"><a href="/product/{{$product->id}}/edit" class="btn btn-warning">Edit</a> </div>
                 </div>
             @endforeach
 

@@ -17,7 +17,8 @@ class Order extends Model
         'address',
         'product_id',
         'order_varity',
-        'order_grade'
+        'order_grade',
+        'status'
 
     ];
 

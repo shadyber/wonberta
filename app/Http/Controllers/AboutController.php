@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,6 +14,7 @@ class AboutController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     /**
@@ -24,10 +26,12 @@ class AboutController extends Controller
     {
         //
         $about=About::all()->first();
-if(!$about){
+
+        $orders_alert=Order::all()->where('status','LIKE',0);
+    if(!$about){
     return view('admin.about.create');
-}
-        return view('admin.about.index')->with('about',$about);
+                }
+        return view('admin.about.index')->with(['about'=>$about,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -40,7 +44,9 @@ if(!$about){
         //
 
         $about=About::all()->first();
-        return view('admin.about.create');
+
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return view('admin.about.create')->with(['about'=>$about,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -85,7 +91,9 @@ if(!$about){
         $about->background = $request->background;
         $about->photo =$url;
         $about->save();
-        return view('admin.about.index')->with(['success'=>'Company Profile Created','about'=>$about]);
+
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return view('admin.about.index')->with(['success'=>'Company Profile Created','about'=>$about,'orders_alert'=>$orders_alert]);
 
 
     }
@@ -113,7 +121,8 @@ if(!$about){
     {
         //
 
-        return view('admin.about.edit')->with('about',$about);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return view('admin.about.edit')->with(['about'=>$about,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -155,7 +164,9 @@ if(!$about){
             $about->save();
 
         }
-        return redirect()->back()->with('success','Company Profile Update Successfuly');
+
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return redirect()->back()->with(['success'=>'Company Profile Update Successfuly','oreders_alert'=>$orders_alert]);
 
 
     }
@@ -169,5 +180,7 @@ if(!$about){
     public function destroy(About $about)
     {
         //
+        $about->delete();
+        return redirect()->back()->with('success','Removed');
     }
 }

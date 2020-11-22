@@ -17,11 +17,11 @@ class CreateAboutsTable extends Migration
             $table->id();
             $table->string('name');
             $table->longText('about');
-            $table->longText('mission');
-            $table->longText('vision');
-            $table->longText('value');
-            $table->longText('goal');
-            $table->longText('background');
+            $table->longText('mission')->nullable();
+            $table->longText('vision')->nullable();
+            $table->longText('value')->nullable();
+            $table->longText('goal')->nullable();
+            $table->longText('background')->nullable();
             $table->string('photo');
             $table->timestamps();
         });

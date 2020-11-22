@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
+use App\Models\Station;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -24,7 +26,9 @@ class ProductController extends Controller
     {
         //
         $products=Product::all();
-        return view('admin.product.index')->with('products',$products);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.product.index')->with(['products'=>$products,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -36,8 +40,9 @@ class ProductController extends Controller
     {
         //
 
+        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.product.create');
+        return view('admin.product.create')->with(['orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -91,7 +96,9 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
-        return  view('admin.product.show')->with('product',$product);
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return  view('admin.product.show')->with(['product'=>$product,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -103,6 +110,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $orders_alert=Order::all()->where('status','LIKE',0);
+
+        return view('admin.product.edit')->with(['product'=>$product,'orders_alert'=>$orders_alert]);
     }
 
     /**
@@ -114,7 +124,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //$product = Product::findOrFail($product->id);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'detail' => 'required'
+
+        ]);
+
+        $input = $request->all();
+
+        $product->fill($input)->save();
+
+        //$orders_alert=Order::all()->where('status','LIKE',0);
+      return redirect()->back();
+
     }
 
     /**
@@ -126,5 +150,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        $product->delete();
+        return redirect()->back()->with('success','Removed');
+
     }
 }

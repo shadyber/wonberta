@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Address;
+use App\Models\Order;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Station;
@@ -25,7 +26,7 @@ class FrontStationController extends Controller
         $stations=Station::all();
         $address=Address::get()->first();
         $about=About::get()->first();
-        
+
 
         return view('front.station.index')->with(['about'=>$about,'products'=>$products,'address'=>$address,'stations'=>$stations]);
      }
@@ -67,8 +68,7 @@ return redirect()->back();
         $products=Product::all();
         $address=Address::all()->first();
         $about=About::get()->first();
-        $station_photos=Photo::all()->where('station_id','LIKE',$station->id);
- 
+        $station_photos=$station->photos;
         return view('front.station.show')->with(['about'=>$about,'station'=>$station,'stations'=>$stations,'products'=>$products,'address'=>$address,'station_photos'=>$station_photos]);
     }
 
@@ -93,6 +93,20 @@ return redirect()->back();
     public function update(Request $request, $id)
     {
         //
+        $station = Station::findOrFail($id);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'detail' => 'required'
+
+        ]);
+
+        $input = $request->all();
+
+        $station->fill($input)->save();
+        $orders_alert=Order::all()->where('status','LIKE',0);
+        return redirect()->route('station.index')->with(['success'=>'Station Update Successfuly','orders_alert'=>$orders_alert]);
+
     }
 
     /**

@@ -40,35 +40,35 @@
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Mission </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="mission" class="form-control p-0 border-0">{{ $about->mission }}</textarea>
+                            <textarea rows="3" name="mission" class="form-control p-0 border-0 summernote">{{ $about->mission }}</textarea>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Vision </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="vision" class="form-control p-0 border-0">{{ $about->vision }}</textarea>
+                            <textarea rows="3" name="vision" class="form-control p-0 border-0 summernote">{{ $about->vision }}</textarea>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Value </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="value" class="form-control p-0 border-0">{{ $about->value }}</textarea>
+                            <textarea rows="3" name="value" class="form-control p-0 border-0 summernote">{{ $about->value }}</textarea>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Goal </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="goal" class="form-control p-0 border-0">{{ $about->goal }}</textarea>
+                            <textarea rows="3" name="goal" class="form-control p-0 border-0 summernote">{{ $about->goal }}</textarea>
                         </div>
                     </div>
 
                     <div class="form-group mb-4">
                         <label class="col-md-12 p-0">Background </label>
                         <div class="col-md-12 border-bottom p-0">
-                            <textarea rows="3" name="background" class="form-control p-0 border-0">{{ $about->background }}</textarea>
+                            <textarea rows="3" name="background" class="form-control p-0 border-0 summernote">{{ $about->background }}</textarea>
                         </div>
                     </div>
 

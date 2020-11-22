@@ -42,3 +42,8 @@ Route::get('/gallery', [App\Http\Controllers\FrontPhotoController::class, 'index
 Route::get('/storagelink', function () {
     Artisan::call('storage:link');
 });
+
+Route::get('/fresh', function () {
+    Artisan::call('migrate:fresh --seed');
+    print('done');
+});
