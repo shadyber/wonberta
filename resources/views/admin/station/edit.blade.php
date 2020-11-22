@@ -5,6 +5,8 @@
     <div class="row">
         <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
             <div class="card-header">
+                <a href="/station"><i class="fa fa-list"></i></a>
+
                 Edit A Station
             </div>
             <div class="card-body">

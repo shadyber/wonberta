@@ -36,7 +36,8 @@ class SettingController extends Controller
     public function create()
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
+
+         $orders_alert=Order::all()->where('status','LIKE',0);
 
     }
 
@@ -51,6 +52,17 @@ class SettingController extends Controller
         //
         $orders_alert=Order::all()->where('status','LIKE',0);
 
+        $user=Auth::user();
+        $this->validate($request, [
+            'password' => 'required'
+
+        ]);
+
+        $input = $request->all();
+        $user->password=bcrypt($request->password);
+        $user->save();
+
+        return  redirect()->back()->with('success','Passwrod Changed');
     }
 
     /**

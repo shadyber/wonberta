@@ -5,6 +5,8 @@
     <div class="row">
         <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
             <div class="card-header">
+                <a href="/station/create"><i class="fa fa-plus"></i></a>
+
                 List Stations
             </div>
             <div class="card-body row">

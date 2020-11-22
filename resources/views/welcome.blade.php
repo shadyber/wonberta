@@ -109,7 +109,7 @@
                 <h4>Backgound</h4>
                 {{ $about->background}}
             </p>
-            <a href="#" class="btn-learn-more"> </a>
+            <a href="#why-us" class="btn-learn-more"> Learn More </a>
           </div>
         </div>
 
