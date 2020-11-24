@@ -64,7 +64,7 @@
                     </h6>
 
                     @foreach (App\Models\Order::pendingOrders() as $order)
-                  
+
                     <a class="dropdown-item d-flex align-items-center" href="/order/{{$order->id}}">
                         <div class="mr-3">
                             <div class="icon-circle bg-primary">
@@ -77,7 +77,7 @@
                         </div>
                     </a>
                     @endforeach
-              
+
 
                           <a class="dropdown-item text-center small text-gray-500" href="/order">Show All Alerts</a>
                 </div>
@@ -100,8 +100,8 @@
 
 @foreach (App\Models\Message::unreadMessages() as $message)
 
- 
-                    <a class="dropdown-item d-flex align-items-center" href="/message/{{ $message->id }}}}">
+
+                    <a class="dropdown-item d-flex align-items-center" href="/message/{{ $message->id}}">
                         <div class="dropdown-list-image mr-3">
                             <img class="rounded-circle" src="/admin/img/undraw_profile_1.svg"
                                 alt="">

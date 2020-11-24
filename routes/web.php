@@ -33,6 +33,7 @@ Route::resource('/service', App\Http\Controllers\ServiceController::class);
 Route::resource('/front/station', App\Http\Controllers\FrontStationController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/replay', [App\Http\Controllers\EmailerController::class, 'send_mail'])->name('replay');
 Route::get('/w_admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('admin');
 Auth::routes(['register' => false]);
 

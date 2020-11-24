@@ -11,9 +11,9 @@ class MessageController extends Controller
 
     public function __construct()
     {
-      
-        
-        $this->middleware('auth');
+
+
+        $this->middleware('auth')->except('store');
     }
     /**
      * Display a listing of the resource.
@@ -22,8 +22,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        // 
-        return view('admin.message.index');
+        //
+        $messages=Message::all();
+        return view('admin.message.index')->with(['messages'=>$messages]);
     }
 
     /**x
@@ -34,6 +35,9 @@ class MessageController extends Controller
     public function create()
     {
         //
+        $messages=Message::all();
+        return view('admin.message.index')->with(['messages'=>$messages]);
+
     }
 
     /**
@@ -44,12 +48,12 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //   
+        //
           $this->validate($request, [
             'email' => 'required',
             'name' => ['required', 'max:255'],
             'message' => ['required'],
-        ]); 
+        ]);
 
         $message=new Message;
         $message->name = $request->name;
@@ -71,6 +75,10 @@ class MessageController extends Controller
     public function show(Message $message)
     {
         //
+        $message->status=1;
+        $message->save();
+
+        return view('admin.message.show')->with(['message'=>$message]);
     }
 
     /**
@@ -82,6 +90,10 @@ class MessageController extends Controller
     public function edit(Message $message)
     {
         //
+        $message->status=1;
+        $message->save();
+
+        return view('admin.message.show')->with(['message'=>$message]);
     }
 
     /**
@@ -94,6 +106,16 @@ class MessageController extends Controller
     public function update(Request $request, Message $message)
     {
         //
+
+        $this->validate($request, [
+            'status' => 'required'
+
+        ]);
+
+        $input = $request->all();
+        $message->fill($input)->save();
+        return redirect()->back()->with('success','Message Updated');
+
     }
 
     /**
@@ -105,5 +127,8 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         //
+        $message->delete();
+        return redirect()->back()->with('success','Removed');
+
     }
 }
