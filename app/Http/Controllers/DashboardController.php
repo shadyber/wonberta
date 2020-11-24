@@ -25,12 +25,11 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
         $orders=Order::all();
         $messages=Message::all();
         $products=Product::all();
         $stations=Station::all();
-        return view('admin.dashboard')->with(['orders_alert'=>$orders_alert,'products'=>$products,'stations'=>$stations,'orders'=>$orders,'messages'=>$messages]);
+        return view('admin.dashboard')->with(['products'=>$products,'stations'=>$stations,'orders'=>$orders,'messages'=>$messages]);
     }
 
     /**

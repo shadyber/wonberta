@@ -100,6 +100,7 @@
         <div class="row content">
           <div class="col-lg-6">
             <p>
+
                 {{ $about->about}}
             </p>
 
@@ -142,7 +143,7 @@
                   <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
                     <p>
                         <h4>Vision</h4>
-                        {{$about->vision}}
+                        {{  $about->vision}}
                     </p>
                   </div>
                 </li>

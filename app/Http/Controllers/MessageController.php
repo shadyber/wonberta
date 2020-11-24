@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
-use App\Models\Order;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -12,7 +11,9 @@ class MessageController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('create','store');
+      
+        
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -21,12 +22,11 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
-        $orders_alert=Order::all()->where('status','LIKE',0);
-
+        // 
+        return view('admin.message.index');
     }
 
-    /**
+    /**x
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -34,8 +34,6 @@ class MessageController extends Controller
     public function create()
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
-
     }
 
     /**
@@ -46,12 +44,12 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //   
           $this->validate($request, [
             'email' => 'required',
             'name' => ['required', 'max:255'],
             'message' => ['required'],
-        ]);
+        ]); 
 
         $message=new Message;
         $message->name = $request->name;
@@ -107,7 +105,5 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         //
-        $message->delete();
-        return redirect()->back()->with('success','Removed');
     }
 }

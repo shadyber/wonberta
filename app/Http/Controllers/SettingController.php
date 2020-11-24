@@ -23,9 +23,8 @@ class SettingController extends Controller
     {
         //
     $user=Auth::user();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.settings.index')->with(['user'=>$user,'orders_alert'=>$orders_alert]);
+        return view('admin.settings.index')->with(['user'=>$user]);
     }
 
     /**
@@ -37,7 +36,6 @@ class SettingController extends Controller
     {
         //
 
-         $orders_alert=Order::all()->where('status','LIKE',0);
 
     }
 
@@ -50,7 +48,6 @@ class SettingController extends Controller
     public function store(Request $request)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
         $user=Auth::user();
         $this->validate($request, [
@@ -87,7 +84,6 @@ class SettingController extends Controller
     public function edit($id)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
     }
 

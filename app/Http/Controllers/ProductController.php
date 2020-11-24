@@ -26,9 +26,8 @@ class ProductController extends Controller
     {
         //
         $products=Product::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.product.index')->with(['products'=>$products,'orders_alert'=>$orders_alert]);
+        return view('admin.product.index')->with(['products'=>$products]);
     }
 
     /**
@@ -40,9 +39,8 @@ class ProductController extends Controller
     {
         //
 
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.product.create')->with(['orders_alert'=>$orders_alert]);
+        return view('admin.product.create')->with([]);
     }
 
     /**

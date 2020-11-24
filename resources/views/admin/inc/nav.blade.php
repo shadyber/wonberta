@@ -54,9 +54,7 @@
                     <i class="fas fa-bell fa-fw"></i>
                     <!-- Counter - Alerts -->
                     <span class="badge badge-danger badge-counter">
-                       @if($orders_alert)
-                    {{count($orders_alert)}}
-                        @endif +</span>
+                        {{count(App\Models\Order::pendingOrders())}} +</span>
                 </a>
                 <!-- Dropdown - Alerts -->
                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -64,8 +62,9 @@
                     <h6 class="dropdown-header">
                         Alerts Center
                     </h6>
-                    @if($orders_alert)
-                    @foreach($orders_alert as $order)
+
+                    @foreach (App\Models\Order::pendingOrders() as $order)
+                  
                     <a class="dropdown-item d-flex align-items-center" href="/order/{{$order->id}}">
                         <div class="mr-3">
                             <div class="icon-circle bg-primary">
@@ -74,11 +73,11 @@
                         </div>
                         <div>
                             <div class="small text-gray-500">{{$order->created_at}}</div>
-                            <span class="font-weight-bold">New Sample Order is Recived From {{$order->f_name}}</span>
+                            <span class="font-weight-bold">{{$order->product->name}} {{$order->order_varity}} {{  $order->order_grade }} Orderd by  {{$order->f_name}}</span>
                         </div>
                     </a>
                     @endforeach
-                    @endif
+              
 
                           <a class="dropdown-item text-center small text-gray-500" href="/order">Show All Alerts</a>
                 </div>
@@ -90,7 +89,7 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-envelope fa-fw"></i>
                     <!-- Counter - Messages -->
-                    <span class="badge badge-danger badge-counter">7</span>
+                    <span class="badge badge-danger badge-counter">{{count(App\Models\Message::unreadMessages())}}</span>
                 </a>
                 <!-- Dropdown - Messages -->
                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -99,55 +98,23 @@
                         Message Center
                     </h6>
 
+@foreach (App\Models\Message::unreadMessages() as $message)
 
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+ 
+                    <a class="dropdown-item d-flex align-items-center" href="/message/{{ $message->id }}}}">
                         <div class="dropdown-list-image mr-3">
                             <img class="rounded-circle" src="/admin/img/undraw_profile_1.svg"
                                 alt="">
                             <div class="status-indicator bg-success"></div>
                         </div>
                         <div class="font-weight-bold">
-                            <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                problem I've been having.</div>
-                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                            <div class="text-truncate">{{$message->subject}}</div>
+                            <div class="small text-gray-500">{{ $message->name }}}} · {{$message->created_at}}</div>
                         </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="/admin/img/undraw_profile_2.svg"
-                                alt="">
-                            <div class="status-indicator"></div>
-                        </div>
-                        <div>
-                            <div class="text-truncate">I have the photos that you ordered last month, how
-                                would you like them sent to you?</div>
-                            <div class="small text-gray-500">Jae Chun · 1d</div>
-                        </div>
-                    </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="/admin/img/undraw_profile_3.svg"
-                                alt="">
-                            <div class="status-indicator bg-warning"></div>
-                        </div>
-                        <div>
-                            <div class="text-truncate">Last month's report looks great, I am very happy with
-                                the progress so far, keep up the good work!</div>
-                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                        </div>
-                    </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                alt="">
-                            <div class="status-indicator bg-success"></div>
-                        </div>
-                        <div>
-                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                told me that people say this to all dogs, even if they aren't good...</div>
-                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                        </div>
-                    </a>
+
+ @endforeach
+
 
                     <a class="dropdown-item text-center small text-gray-500" href="/message">Read More Messages</a>
 

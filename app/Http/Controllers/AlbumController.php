@@ -25,9 +25,8 @@ class AlbumController extends Controller
     {
         //
         $albums=Album::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.album.index')->with(['albums'=>$albums,'orders_alert'=>$orders_alert]);
+        return view('admin.album.index')->with(['albums'=>$albums]);
     }
 
     /**
@@ -39,9 +38,8 @@ class AlbumController extends Controller
     {
         //
         $albums=Album::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.album.create')->with(['albums'=>$albums,'orders_alert'=>$orders_alert]);
+        return view('admin.album.create')->with(['albums'=>$albums]);
     }
 
     /**
@@ -83,9 +81,8 @@ class AlbumController extends Controller
         $album->photo =$url;
 
         $album->save();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return redirect()->back()->with(['success'=>'Album Created','album'=>$album,'orders_alert'=>$orders_alert]);
+        return redirect()->back()->with(['success'=>'Album Created','album'=>$album]);
 
 
     }
@@ -99,9 +96,8 @@ class AlbumController extends Controller
     public function show(Album $album)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.album.show')->with(['album'=>$album,'orders_alert'=>$orders_alert]);
+        return view('admin.album.show')->with(['album'=>$album]);
     }
 
     /**
@@ -112,10 +108,9 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
 
-        return view('admin.album.edit')->with(['album'=>$album,'orders_alert'=>$orders_alert]);
+        return view('admin.album.edit')->with(['album'=>$album]);
     }
 
     /**

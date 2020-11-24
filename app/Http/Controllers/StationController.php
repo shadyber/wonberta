@@ -25,9 +25,8 @@ class StationController extends Controller
     {
         //
         $stations=Station::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.station.index')->with(['stations'=>$stations,'orders_alert'=>$orders_alert]);
+        return view('admin.station.index')->with(['stations'=>$stations]);
     }
 
     /**
@@ -41,8 +40,7 @@ class StationController extends Controller
 
         $stations=Station::all();
 
-        $orders_alert=Order::all()->where('status','LIKE',0);
-        return view('admin.station.create')->with(['stations'=>$stations,'orders_alert'=>$orders_alert]);
+        return view('admin.station.create')->with(['stations'=>$stations]);
     }
 
     /**
@@ -100,8 +98,7 @@ class StationController extends Controller
     {
         //
 
-        $orders_alert=Order::all()->where('status','LIKE',0);
-        return view('admin.station.show')->with(['station'=>$station,'orders_alert'=>$orders_alert]);
+        return view('admin.station.show')->with(['station'=>$station]);
     }
 
     /**
@@ -114,8 +111,7 @@ class StationController extends Controller
     {
         //
 
-        $orders_alert=Order::all()->where('status','LIKE',0);
-        return view('admin.station.edit')->with(['station'=>$station,'orders_alert'=>$orders_alert]);
+        return view('admin.station.edit')->with(['station'=>$station]);
     }
 
     /**
@@ -140,8 +136,7 @@ class StationController extends Controller
         $input = $request->all();
 
         $station->fill($input)->save();
-        $orders_alert=Order::all()->where('status','LIKE',0);
-        return redirect()->back()->with(['success'=>'Station Update Successfuly','orders_alert'=>$orders_alert]);
+        return redirect()->back()->with(['success'=>'Station Update Successfuly']);
 
     }
 

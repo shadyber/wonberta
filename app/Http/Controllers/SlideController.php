@@ -26,9 +26,8 @@ class SlideController extends Controller
     {
         //
         $slides=Slide::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.carousel.index')->with(['slides'=>$slides,'orders_alert'=>$orders_alert]);
+        return view('admin.carousel.index')->with(['slides'=>$slides]);
     }
 
     /**
@@ -39,9 +38,8 @@ class SlideController extends Controller
     public function create()
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.carousel.create')->with(['orders_alert'=>$orders_alert]);
+        return view('admin.carousel.create')->with([]);
     }
 
     /**
@@ -96,9 +94,8 @@ class SlideController extends Controller
     public function show(Slide $slide)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.carousel.show')->with(['slide'=>$slide,'orders_alert'=>$orders_alert]);
+        return view('admin.carousel.show')->with(['slide'=>$slide]);
     }
 
     /**
@@ -110,9 +107,8 @@ class SlideController extends Controller
     public function edit(Slide $slide)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.carousel.edit')->with(['slide'=>$slide,'orders_alert'=>$orders_alert]);
+        return view('admin.carousel.edit')->with(['slide'=>$slide]);
     }
 
     /**

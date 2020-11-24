@@ -85,10 +85,8 @@ class OrderController extends Controller
     {
         //
         $product=Product::find($order->product_id);
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.order.show')->with(['order'=>$order,'product'=>$product,'orders_alert'=>$orders_alert
-        ]);
+        return view('admin.order.show')->with(['order'=>$order,'product'=>$product]);
     }
 
     /**

@@ -28,9 +28,8 @@ class AddressController extends Controller
         if(!$address){
             return view('admin.address.create');
         }
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.address.index')->with(['address'=>$address,'orders_alert'=>$orders_alert]);
+        return view('admin.address.index')->with(['address'=>$address]);
     }
 
     /**
@@ -42,9 +41,8 @@ class AddressController extends Controller
     {
         //
         $address=Address::get()->first();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.address.create')->with(['address'=>$address,'orders_alert'=>$orders_alert]);
+        return view('admin.address.create')->with(['address'=>$address]);
     }
 
     /**
@@ -84,9 +82,8 @@ class AddressController extends Controller
         $address->linkedin = $request->linkedin;
 
         $address->save();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return  view('admin.address.index')->with(['address'=>$address,'orders_alert'=>$orders_alert]);
+        return  view('admin.address.index')->with(['address'=>$address]);
 
     }
 
@@ -110,9 +107,8 @@ class AddressController extends Controller
     public function edit(Address $address)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return  view('admin.address.index')->with(['address'=>$address,'orders_alert'=>$orders_alert]);
+        return  view('admin.address.index')->with(['address'=>$address]);
     }
 
     /**
@@ -137,8 +133,7 @@ class AddressController extends Controller
         $input = $request->all();
 
         $address->fill($input)->save();
-        $orders_alert=Order::all()->where('status','LIKE',0);
-        return redirect()->route('address.index')->with(['success'=>'Address Update Successfuly','orders_alert'=>$orders_alert]);
+        return redirect()->route('address.index')->with(['success'=>'Address Update Successfuly']);
 
     }
 

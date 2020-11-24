@@ -17,9 +17,8 @@ class ServiceController extends Controller
     {
         //
         $services=Service::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.service.index')->with(['services'=>$services,'orders_alert'=>$orders_alert]);
+        return view('admin.service.index')->with(['services'=>$services]);
 
     }
 
@@ -58,9 +57,8 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.service.show')->with(['service'=>$service,'orders_alert'=>$orders_alert]);
+        return view('admin.service.show')->with(['service'=>$service]);
 
     }
 
@@ -73,9 +71,8 @@ class ServiceController extends Controller
     public function edit(Service $service)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.service.edit')->with(['service'=>$service,'orders_alert'=>$orders_alert]);
+        return view('admin.service.edit')->with(['service'=>$service]);
 
     }
 
