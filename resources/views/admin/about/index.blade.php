@@ -34,7 +34,7 @@
                 <div class="form-group mb-4">
                     <label class="col-md-12 p-0">Main Photo</label>
                     <div class="col-md-12 border-bottom p-0">
-                        <input type="file" placeholder="Main Photo" name="photo" class="form-control p-0 border-0 summernote"> </div>
+                        <input type="file" placeholder="Main Photo" name="photo" class="form-control p-0 border-0"> </div>
                 </div>
 
 

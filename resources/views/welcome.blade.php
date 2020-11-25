@@ -101,14 +101,14 @@
           <div class="col-lg-6">
             <p>
 
-                {{ $about->about}}
+                {!!html_entity_decode($about->about)!!}
             </p>
 
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
                 <h4>Backgound</h4>
-                {{ $about->background}}
+                {!!html_entity_decode($about->backgound)!!}
             </p>
             <a href="#why-us" class="btn-learn-more"> Learn More </a>
           </div>
@@ -143,7 +143,7 @@
                   <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
                     <p>
                         <h4>Vision</h4>
-                        {{  $about->vision}}
+                        {!!html_entity_decode($about->vision)!!}
                     </p>
                   </div>
                 </li>
@@ -153,7 +153,7 @@
                   <div id="accordion-list-2" class="collapse" data-parent=".accordion-list">
                     <h4>Misssion</h4>
                       <p>
-                          {{$about->mission}}
+                        {!!html_entity_decode($about->vision)!!}
                       </p>
 
                   </div>
@@ -164,7 +164,7 @@
                   <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
 <h4>Value</h4>
                       <p>
-                          {{$about->value}}
+                        {!!html_entity_decode($about->value)!!}
                       </p>
 
                   </div>
