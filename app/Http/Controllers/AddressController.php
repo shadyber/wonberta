@@ -39,10 +39,10 @@ class AddressController extends Controller
      */
     public function create()
     {
-        //
-        $address=Address::get()->first();
+            //
+            $address=Address::get()->first();
 
-        return view('admin.address.create')->with(['address'=>$address]);
+            return view('admin.address.create')->with(['address'=>$address]);
     }
 
     /**

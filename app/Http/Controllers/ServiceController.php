@@ -31,9 +31,8 @@ class ServiceController extends Controller
     {
         //
         $services=Service::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.service.create')->with(['services'=>$services,'orders_alert'=>$orders_alert]);
+        return view('admin.service.create')->with(['services'=>$service]);
 
     }
 

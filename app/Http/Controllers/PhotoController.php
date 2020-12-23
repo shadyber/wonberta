@@ -26,9 +26,7 @@ class PhotoController extends Controller
     {
         //
         $photos=Photo::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
-
-        return view('admin.photo.index')->with(['photos'=>$photos,'orders_alert'=>$orders_alert]);
+        return view('admin.photo.index')->with(['photos'=>$photos]);
     }
 
     /**
@@ -42,9 +40,8 @@ class PhotoController extends Controller
         $photos=Photo::all();
         $albums=Album::all();
         $stations=Station::all();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return view('admin.photo.create')->with(['photos'=>$photos,'albums'=>$albums,'stations'=>$stations,'orders_alert'=>$orders_alert]);
+        return view('admin.photo.create')->with(['photos'=>$photos,'albums'=>$albums,'stations'=>$stations]);
     }
 
     /**
@@ -87,9 +84,8 @@ class PhotoController extends Controller
         $photo->photo =$url;
 
         $photo->save();
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return redirect()->back()->with(['success'=>'Photo Created','photo'=>$photo,'orders_alert'=>$orders_alert]);
+        return redirect()->back()->with(['success'=>'Photo Created','photo'=>$photo]);
 
     }
 
@@ -100,10 +96,9 @@ class PhotoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Photo $photo)
-    {
-        $orders_alert=Order::all()->where('status','LIKE',0);
+    { 
 
-        return view('admin.photo.index')->with(['photo'=>$photo,'orders_alert'=>$orders_alert]);
+        return view('admin.photo.index')->with(['photo'=>$photo]);
     }
 
     /**

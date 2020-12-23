@@ -108,7 +108,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
                 <h4>Backgound</h4>
-                {!!html_entity_decode($about->backgound)!!}
+                {!!html_entity_decode($about->background)!!}
             </p>
             <a href="#why-us" class="btn-learn-more"> Learn More </a>
           </div>
@@ -224,7 +224,7 @@
               <h4>{{$station->size}}m<sup>2</sup></h4>
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                 <a href="/front/station/{{$station->id}}">   {{ \Illuminate\Support\Str::limit($station->detail, $limit = 250, $end = '...') }}</a>
+                 <a href="/front/station/{{$station->id}}">  {{ $station->name }}</a>
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>

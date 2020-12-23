@@ -94,9 +94,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
-        $orders_alert=Order::all()->where('status','LIKE',0);
 
-        return  view('admin.product.show')->with(['product'=>$product,'orders_alert'=>$orders_alert]);
+        return  view('admin.product.show')->with(['product'=>$product]);
     }
 
     /**

@@ -26,7 +26,7 @@ class AboutController extends Controller
     {
         //
         $about=About::all()->first();
- 
+
     if(!$about){
     return view('admin.about.create');
                 }
@@ -43,7 +43,7 @@ class AboutController extends Controller
         //
 
         $about=About::all()->first();
- 
+
         return view('admin.about.create')->with(['about'=>$about]);
     }
 
@@ -89,8 +89,8 @@ class AboutController extends Controller
         $about->background = $request->background;
         $about->photo =$url;
         $about->save();
- 
-        return view('admin.about.index')->with(['success'=>'Company Profile Created','about'=>$about]);
+
+        return redirect()->back()->with(['success'=>'Company Profile Created','about'=>$about]);
 
 
     }
@@ -118,7 +118,6 @@ class AboutController extends Controller
     {
         //
 
-        $orders_alert=Order::all()->where('status','LIKE',0);
         return view('admin.about.edit')->with(['about'=>$about]);
     }
 
@@ -161,7 +160,7 @@ class AboutController extends Controller
             $about->save();
 
         }
- 
+
         return redirect()->back()->with(['success'=>'Company Profile Update Successfuly']);
 
 

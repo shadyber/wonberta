@@ -28,6 +28,7 @@ Route::resource('/product', App\Http\Controllers\ProductController::class);
 Route::resource('/order', App\Http\Controllers\OrderController::class);
 Route::resource('/message', App\Http\Controllers\MessageController::class);
 Route::resource('/service', App\Http\Controllers\ServiceController::class);
+Route::resource('/blog', App\Http\Controllers\BlogController::class);
 
 
 Route::resource('/front/station', App\Http\Controllers\FrontStationController::class);

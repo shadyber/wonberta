@@ -50,7 +50,7 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         //
         $validatedData = $request->validate([
             'name' => 'required',
@@ -123,13 +123,13 @@ class AlbumController extends Controller
     public function update(Request $request, Album $album)
     {
         $this->validate($request, [
-        'name' => 'required'
+            'name' => 'required'
 
-    ]);
+        ]);
 
-        $input = $request->all();
-        $album->fill($input)->save();
-        return redirect()->back()->with('success','Album Updated');
+            $input = $request->all();
+            $album->fill($input)->save();
+            return redirect()->back()->with('success','Album Updated');
     }
 
     /**

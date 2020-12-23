@@ -5,7 +5,7 @@
 <div class="row">
     <div class="card col-lg-12 col-md-12 col-sm-12 border-left-primary">
         <div class="card-header">
-      Edit Stations
+      Edit Photo
         </div>
         <div class="card-body">
 
