@@ -11,6 +11,7 @@ use App\Models\Station;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Type\Integer;
 
 class FrontStationController extends Controller
 {
@@ -24,11 +25,14 @@ class FrontStationController extends Controller
         //
         $products=Product::all();
         $stations=Station::all();
+
         $address=Address::get()->first();
         $about=About::get()->first();
 
+        $station=Station::get()->last();
 
-        return view('front.station.index')->with(['about'=>$about,'products'=>$products,'address'=>$address,'stations'=>$stations]);
+
+        return view('front.station.index')->with(['about'=>$about,'products'=>$products,'address'=>$address,'stations'=>$stations,'station'=>$station]);
      }
 
     /**

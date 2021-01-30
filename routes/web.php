@@ -32,6 +32,7 @@ Route::resource('/blog', App\Http\Controllers\BlogController::class);
 
 
 Route::resource('/front/station', App\Http\Controllers\FrontStationController::class);
+Route::resource('/front/blog', App\Http\Controllers\FrontBlogController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/replay', [App\Http\Controllers\EmailerController::class, 'send_mail'])->name('replay');

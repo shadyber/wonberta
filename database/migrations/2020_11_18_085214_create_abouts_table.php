@@ -22,6 +22,7 @@ class CreateAboutsTable extends Migration
             $table->longText('value')->nullable();
             $table->longText('goal')->nullable();
             $table->longText('background')->nullable();
+            $table->longText('video')->nullable();
             $table->string('photo');
             $table->timestamps();
         });

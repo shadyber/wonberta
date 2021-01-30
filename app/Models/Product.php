@@ -19,4 +19,10 @@ class Product extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+
+    public static function allProducts(){
+        return Product::all();
+    }
+
 }

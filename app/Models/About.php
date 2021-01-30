@@ -17,7 +17,8 @@ class About extends Model
         'vision',
         'goal',
         'background',
-        'value'
+        'value',
+        'video'
 
     ];
 

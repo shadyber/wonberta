@@ -21,7 +21,8 @@ class AboutSeeder extends Seeder
                'value' => 'Professionalism Integrity Creativity, innovation & willingness to change Team work Corporate governance Social responsibility Promptness responsibility',
                'goal' => '',
                'background' => 'Wonberta General Import and Export P.L.C And its sister company Dt and Family Business P.L.C were officially established in 2007 and 1996 respectively with operational sites in Oromiya National Regional States. Wonberta is one of the major coffee exporters that has built a good track record in Ethiopia and its majorly involved in the coffee export sector along with some general import trading activities.',
-               'photo' => '/img/banner.jpg'
+               'photo' => '/img/banner.jpg',
+               'video' => 'https://youtube.com/watch?sakicha',
                ]);
             }
 }

@@ -24,4 +24,9 @@ class Station extends Model
     {
         return $this->hasMany(Photo::class);
     }
+
+    public static function allStations()
+    {
+       return Station::all();
+    }
 }
