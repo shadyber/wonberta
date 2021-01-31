@@ -61,6 +61,10 @@
                                     </ul>
                                 </li>
                                 <li>
+                                    <a href="/gallery">
+                                        <span class="menu-text">Gallery</span>
+                                    </a>
+                                </li>    <li>
                                     <a href="/contact">
                                         <span class="menu-text">Contact</span>
                                     </a>

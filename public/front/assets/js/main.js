@@ -1,6 +1,6 @@
 (function ($) {
     "use strict";
-    
+
     /*----------------------------------------
 	   Sticky Menu Activation
 	---------------------------------*/
@@ -23,6 +23,7 @@
 		$("body").removeClass('fix');
 		$(".off-canvas-wrapper").removeClass('open');
 	});
+
 
 	/*----------------------------------------
 		Off Canvas Menu
@@ -207,7 +208,7 @@
         }
 	}
 	/*-------------------------
-        Ajax Contact Form 
+        Ajax Contact Form
     ---------------------------*/
     $(function() {
 
@@ -292,6 +293,13 @@
 		$('#preloader').delay(250).fadeOut('slow')
 		$('body').delay(250).css({'overflow':'visible'});
 	});
+
+
+    // Initiate venobox (lightbox feature used in portofilo)
+
+        $('.venobox').venobox({
+            'share': false
+        });
 
 })(jQuery);
 
