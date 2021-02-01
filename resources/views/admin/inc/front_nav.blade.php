@@ -25,7 +25,7 @@
 
                                 </li>
                                 <li>
-                                    <a href="#about">
+                                    <a href="/front/about">
                                         <span class="menu-text">About</span>
                                     </a>
                                 </li>
@@ -124,12 +124,12 @@
                             <!-- mobile menu navigation start -->
                             <nav>
                                 <ul class="mobile-menu">
-                                    <li class="menu-item-has-children"><a href="/#">Home</a>
+                                    <li class="menu-item-has-children"><a href="/">Home</a>
 
                                     </li>
-                                    <li><a href="/#about">About</a></li>
+                                    <li><a href="/about">About</a></li>
                                     <li><a href="/#service">Service</a></li>
-                                    <li class="menu-item-has-children"><a href="/front#">Portfolio</a>
+                                    <li class="menu-item-has-children"><a href="/">Portfolio</a>
                                         <ul class="dropdown">
                                             <li><a href="/frontportfolio.html">Portfolio One</a></li>
                                             <li><a href="/frontportfolio-2.html">Portfolio Two</a></li>

@@ -29,7 +29,8 @@ Route::resource('/order', App\Http\Controllers\OrderController::class);
 Route::resource('/message', App\Http\Controllers\MessageController::class);
 Route::resource('/service', App\Http\Controllers\ServiceController::class);
 Route::resource('/blog', App\Http\Controllers\BlogController::class);
-
+Route::get('/front/about', [App\Http\Controllers\FrontController::class, 'about'])->name('about');
+Route::get('/front/contact', [App\Http\Controllers\FrontController::class, 'contact'])->name('contact');
 
 Route::resource('/front/station', App\Http\Controllers\FrontStationController::class);
 Route::resource('/front/blog', App\Http\Controllers\FrontBlogController::class);

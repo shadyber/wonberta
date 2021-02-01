@@ -56,9 +56,11 @@
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
       <div class="carousel-inner" role="listbox">
+
           {{$i=0 }}
       @foreach($slides as $slide)
 {{$i++}}
+
         <!-- Slide {{$slide->id }} -->
         <div class="carousel-item @if($i==1)active @endif " style="background-image: url('{{$slide->photo}}')">
           <div class="carousel-container">
@@ -69,6 +71,7 @@
             </div>
           </div>
         </div>
+
           @endforeach
 
       </div>

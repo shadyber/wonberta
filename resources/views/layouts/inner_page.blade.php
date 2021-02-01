@@ -35,7 +35,6 @@
     <link rel="stylesheet" href="/front/assets/css/vendor/vendor.min.css">
     <link rel="stylesheet" href="/front/assets/css/plugins/plugins.min.css">
     <link rel="stylesheet" href="/front/assets/css/style.min.css">
-    <link rel="stylesheet" href="/front/assets/vendor/venoxbox/venobox.css">
 
 </head>
 
@@ -118,10 +117,10 @@
 <script src="/front/assets/js/vendor/vendor.min.js"></script>
 <script src="/front/assets/js/plugins/plugins.min.js"></script>
 
-<script src="/front/assets/vendor/venobox/venobox.min.js"></script>
 
 <!--Main JS-->
 <script src="/front/assets/js/main.js"></script>
+@yield('scripts')
 </body>
 
 </html>
