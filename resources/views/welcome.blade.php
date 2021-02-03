@@ -139,6 +139,7 @@
                 </div>
             </div>
             <div class="row mb-n10">
+              @if($about->mission!=''|| $about->mission!=null)
                 <div class="col-lg-3 col-md-6 mb-10">
                     <div class="single-service-wrapper" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-icon">
@@ -150,6 +151,10 @@
                         </div>
                     </div>
                 </div>
+
+                @endif
+
+              @if($about->vision!=''|| $about->vision!=null)
                 <div class="col-lg-3 col-md-6 mb-10">
                     <div class="single-service-wrapper" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-icon">
@@ -161,6 +166,9 @@
                         </div>
                     </div>
                 </div>
+@endif
+
+              @if($about->goal!=''|| $about->goal!=null)
                 <div class="col-lg-3 col-md-6 mb-10">
                     <div class="single-service-wrapper" data-aos="fade-up" data-aos-delay="600">
                         <div class="service-icon">
@@ -172,6 +180,9 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
+              @if($about->value!=''|| $about->value!=null)
                 <div class="col-lg-3 col-md-6 mb-10">
                     <div class="single-service-wrapper" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-icon">
@@ -184,7 +195,7 @@
                     </div>
                 </div>
 
-
+@endif
             </div>
         </div>
     </div>
