@@ -36,7 +36,7 @@
                                 </li>
                                 <li>
                                     <a href="/front/station">
-                                        <span class="menu-text"> Station</span>
+                                        <span class="menu-t  ext"> Station</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="dropdown-submenu dropdown-hover">
