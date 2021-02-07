@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
+use App\Notifications\OrderCreated;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 
 class OrderController extends Controller
 {
@@ -67,7 +70,9 @@ class OrderController extends Controller
         $order->product_id=$request->product_id;
 
         $order->save();
-
+        User::find(1)->notify(new OrderCreated($order));
+       // $admin=User::find(1);
+//Notification::send($admin,new OrderCreated($order));
         return  back()->with('success','Order Deliver to Manager Thank you For your Interest');
     }
 

@@ -28,17 +28,17 @@ class Order extends Model
     }
 
 
-    
+
     public static function pendingOrders(){
         return Order::all()->where('status','LIKE','0');
     }
 
-    
+
     public static function processingOrders(){
         return Order::all()->where('status','LIKE','1');
     }
 
-    
+
     public static function closedOrders(){
         return Order::all()->where('status','LIKE','2');
     }

@@ -200,6 +200,41 @@
         </div>
     </div>
     <!-- Service Section End Here -->
+
+
+    <!-- End Portfolio Section -->
+<section id="products" class="team section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Products</h2>
+            <p>Check our Products</p>
+        </div>
+
+        <div class="row">
+
+            @foreach($products as $product)
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="{{$product->photo}}" class="img-fluid" alt="">
+                    <div class="member-info">
+                        <div class="member-info-content">
+                            <h4>{{$product->name}}</h4>
+                            <span>  {{ \Illuminate\Support\Str::limit($product->detail, $limit = 150, $end = '...') }}</span>
+                        </div>
+                        <div class="social">
+                                </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+        </div>
+
+    </div>
+</section><!-- End Team Section -->
+
+
     <!-- Funfact Section Start Here -->
     <div class="funfact-section d-flex flex-column justify-content-center">
         <div class="container-fluid p-0">
